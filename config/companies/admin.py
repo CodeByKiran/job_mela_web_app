@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Company
+from .models import Company, Facility
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
@@ -17,4 +17,19 @@ class CompanyAdmin(admin.ModelAdmin):
         'block',
         'floor',
         'landmark',
+    )
+
+@admin.register(Facility)
+class FacilityAdmin(admin.ModelAdmin):
+    list_display = ('name', 'location_type', 'gender', 'block', 'floor', 'room_number')
+    search_fields = ('name', 'block')
+    list_filter = ('location_type', 'gender', 'block')
+    
+    fields = (
+        'name',
+        'location_type',
+        'gender',
+        'block',
+        'floor',
+        'room_number',
     )

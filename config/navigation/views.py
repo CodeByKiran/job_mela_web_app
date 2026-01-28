@@ -7,7 +7,7 @@ from .models import Location
 def scan_location(request, location_id):
     location = get_object_or_404(Location, id=location_id)
 
-    # Save current location in session
-    request.session['current_location'] = location.name
+    # Save current location ID in session
+    request.session['current_location_id'] = location_id
 
-    return redirect('home')
+    return redirect('dashboard:home')

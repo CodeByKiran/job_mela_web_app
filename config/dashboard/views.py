@@ -1,8 +1,6 @@
-from navigation.models import Location
-from django.shortcuts import redirect, render
-from companies.models import Company
-from django.shortcuts import get_object_or_404
 from navigation.models import Location, Route
+from django.shortcuts import redirect, render, get_object_or_404
+from companies.models import Company, Facility
 from collections import defaultdict
 
 
@@ -10,7 +8,7 @@ from collections import defaultdict
 def company_detail(request, pk):
     company = get_object_or_404(Company, pk=pk)
 
-    current_location_id = request.session.get("current_location")
+    current_location_id = request.session.get("current_location_id")
     current_location = None
     directions = None
 

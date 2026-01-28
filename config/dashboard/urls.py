@@ -1,7 +1,12 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
+
+app_name = 'dashboard'
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include(("dashboard.urls", "dashboard"), namespace="dashboard")),
+    path('', views.home, name='home'),
+    path('company/<int:pk>/', views.company_detail, name='company_detail'),
+    path('set-location/', views.set_current_location, name='set_location'),
+    path('facilities/', views.facilities, name='facilities'),
+    path('toilets/', views.toilets, name='toilets'),
 ]
