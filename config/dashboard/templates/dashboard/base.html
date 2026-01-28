@@ -31,17 +31,6 @@
         <img src="{% static 'images/logo.png' %}" height="40" alt="Job Mela Logo" onerror="this.style.display='none'">
         <strong>Job Mela</strong>
       </a>
-
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        {% if current_location %}
-        <span class="location-badge">
-          📍 {{ current_location.name }}
-        </span>
-        {% endif %}
-        <a href="#location-selector" class="btn-outline" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
-          📍 Change Location
-        </a>
-      </div>
     </div>
   </nav>
 

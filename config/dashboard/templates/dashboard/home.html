@@ -5,39 +5,20 @@
 
 <!-- HEADER -->
 <div style="margin-bottom: 2rem;">
-  <h1 class="text-gradient">ðŸ¢ Participating Companies</h1>
+  <h1 class="text-gradient"> Participating Companies</h1>
   <p style="color: var(--text-secondary); font-size: 1.1rem;">Find your dream company and navigate to their booth</p>
-</div>
-
-<!-- LOCATION SELECTOR -->
-<div id="location-selector" class="location-form">
-  <form method="post" action="{% url 'dashboard:set_location' %}">
-    {% csrf_token %}
-    <label>
-      <span style="font-size: 1.25rem;">ðŸ“</span>
-      <strong>Where are you now?</strong>
-    </label>
-    <select name="location_id" onchange="this.form.submit()" required>
-      <option value="">-- Select Your Current Location --</option>
-      {% for loc in locations %}
-      <option value="{{ loc.id }}">
-        {{ loc.name }} ({{ loc.get_location_type_display }})
-      </option>
-      {% endfor %}
-    </select>
-  </form>
 </div>
 
 <!-- SEARCH BAR -->
 <div class="search-container">
-  <span class="search-icon">ðŸ”</span>
+  <span class="search-icon"></span>
   <input type="text" id="company-search" class="search-bar" placeholder="Search companies by name..."
     autocomplete="off">
 </div>
 
 <!-- FILTER SECTION -->
 <div class="filter-section">
-  <h3 style="margin-bottom: 1rem;">ðŸŽ¯ Filter by Venue</h3>
+  <h3 style="margin-bottom: 1rem;"> Filter by Venue</h3>
   <div class="filter-chips" id="venue-filters">
     <div class="filter-chip active" data-venue="all">All Companies</div>
     {% for location in locations %}
@@ -59,7 +40,7 @@
           <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">{{ company.name }}</h3>
           <div
             style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
-            <span>ðŸ“</span>
+            <span></span>
             <span style="font-weight: 600;">{{ company.venue.name|default:"Venue TBA" }}</span>
           </div>
         </div>
@@ -84,12 +65,12 @@
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
         <a class="btn btn-primary" href="{% url 'dashboard:company_detail' company.id %}"
           style="flex: 1; min-width: 150px;">
-          <span>ðŸ§­</span>
+          <span>­</span>
           <span>Navigate</span>
         </a>
         {% if company.profile_url %}
         <a class="btn btn-outline" href="{{ company.profile_url }}" target="_blank" style="flex: 1; min-width: 150px;">
-          <span>ðŸ”—</span>
+          <span></span>
           <span>Company Info</span>
         </a>
         {% endif %}
